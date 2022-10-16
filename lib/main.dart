@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
             icon: Icon(Icons.settings),
             onPressed: () {},
           ),
-          iconTheme: IconThemeData(color: Colors.black),
+          iconTheme: IconThemeData(color: Colors.white),
           centerTitle: true,
           brightness: Brightness.light,
           backgroundColor: Colors.red.shade400,
@@ -40,6 +40,8 @@ Widget _buildBody() {
                   _cityDiscription(),
                   _temperature_z(),
                   _temperature_z1(),
+                  _weatherForecast(),
+                  _myListView(),
                   // _temperatureForecast(),
 
                   //_footerRatings(),
@@ -311,6 +313,62 @@ Row _temperature_z1() {
             ),
           ],
         ),
+      ),
+    ],
+  );
+}
+
+Column _weatherForecast() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Text(
+        '7-Day Weather Forecast',
+        style: TextStyle(fontSize: 20, color: Colors.white),
+      ),
+    ],
+  );
+}
+
+Widget _myListView() {
+  return ListView(
+    scrollDirection: Axis.horizontal,
+    itemExtent: 200,
+    shrinkWrap: true,
+    padding: EdgeInsets.only(left: 20, right: 20),
+    children: [
+      ListTile(
+        title: Text(
+          'FriDay',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        subtitle: Text(
+          '6 F',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        trailing: Icon(Icons.exit_to_app_outlined),
+      ),
+      ListTile(
+        title: Text(
+          'FriDay',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        subtitle: Text(
+          '6 F',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        trailing: Icon(Icons.exit_to_app_outlined),
+      ),
+      ListTile(
+        title: Text(
+          'FriDay',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        subtitle: Text(
+          '6 F',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        trailing: Icon(Icons.exit_to_app_outlined),
       ),
     ],
   );
