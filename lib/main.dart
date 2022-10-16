@@ -7,25 +7,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: (Colors.red),
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.menu),
+            icon: Icon(Icons.settings),
             onPressed: () {},
           ),
-          iconTheme: IconThemeData(color: Colors.black54),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {},
-            )
-          ],
+          iconTheme: IconThemeData(color: Colors.white),
           centerTitle: true,
           brightness: Brightness.light,
-          title: Text(
-            "Weather",
-            style: TextStyle(color: Colors.black87),
-          ),
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.red.shade400,
         ),
         body: _buildBody(),
       ),
@@ -37,7 +28,7 @@ Widget _buildBody() {
   return SingleChildScrollView(
     child: Column(
       children: [
-        _headerImage(),
+        // _headerImage(),
         SafeArea(
           child: Padding(
             padding: EdgeInsets.all(16),
@@ -45,13 +36,11 @@ Widget _buildBody() {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   _weatherDiscription(),
-                  Divider(),
                   _temperature(),
-                  Divider(),
-                  _temperatureForecast(),
-                  Divider(),
-                  const Divider(),
-                  _footerRatings(),
+                  _cityDiscription(),
+                  // _temperatureForecast(),
+
+                  //_footerRatings(),
                 ]),
           ),
         ),
@@ -60,66 +49,30 @@ Widget _buildBody() {
   );
 }
 
-Image _headerImage() {
-  return Image(
-    image: NetworkImage(
-        'https://img4.goodfon.ru/original/800x480/e/c5/priroda-oblaka-solnyshko-iasnaia-pogoda.jpg'),
-    fit: BoxFit.cover,
-  );
-}
-
 Column _weatherDiscription() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Text(
-        'Tuesday - May 22',
-        style: TextStyle(
-            fontSize: 32, color: Colors.black87, fontWeight: FontWeight.bold),
-      ),
-      Divider(),
-      Text(
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio ligula, sagittis ut mi vel, tincidunt porttitor urna. Proin eu pretium diam. Curabitur gravida diam volutpat, fermentum nunc nec, accumsan odio.',
-        style: TextStyle(fontSize: 16, color: Colors.black54),
+        'Weather Forecast',
+        style: TextStyle(fontSize: 16, color: Colors.white),
       ),
     ],
   );
 }
 
-Row _temperature() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
-          Icon(
-            Icons.wb_sunny,
-            color: Colors.yellow,
-          ),
-        ],
+Column _cityDiscription() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Text(
+        'Chelyabinsk Oblast, RU',
+        style: TextStyle(
+            fontSize: 26, color: Colors.white, fontWeight: FontWeight.w200),
       ),
-      const SizedBox(width: 16.0),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            children: const <Widget>[
-              Text(
-                '15 C Clear',
-                style: TextStyle(color: Colors.deepPurple),
-              ),
-            ],
-          ),
-          Row(
-            children: const <Widget>[
-              Text(
-                'Murmanskaya oblast, Murmans',
-                style: TextStyle(color: Colors.grey),
-              ),
-            ],
-          ),
-        ],
+      Text(
+        'Friday, Mar 20, 2022',
+        style: TextStyle(fontSize: 14, color: Colors.white),
       ),
     ],
   );
