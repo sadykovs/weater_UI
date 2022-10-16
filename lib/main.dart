@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
             icon: Icon(Icons.settings),
             onPressed: () {},
           ),
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: IconThemeData(color: Colors.black),
           centerTitle: true,
           brightness: Brightness.light,
           backgroundColor: Colors.red.shade400,
@@ -38,6 +38,8 @@ Widget _buildBody() {
                   _weatherDiscription(),
                   _temperature(),
                   _cityDiscription(),
+                  _temperature_z(),
+                  _temperature_z1(),
                   // _temperatureForecast(),
 
                   //_footerRatings(),
@@ -101,26 +103,215 @@ Wrap _temperatureForecast() {
   );
 }
 
-Row _footerRatings() {
-  var stars = Row(
-    mainAxisSize: MainAxisSize.min,
+Row _temperature() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
     children: [
-      Icon(Icons.star, size: 15.0, color: Colors.yellow[600]),
-      Icon(Icons.star, size: 15.0, color: Colors.yellow[600]),
-      Icon(Icons.star, size: 15.0, color: Colors.yellow[600]),
-      const Icon(Icons.star, size: 15.0, color: Colors.black),
-      const Icon(Icons.star, size: 15.0, color: Colors.black),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const <Widget>[
+          Icon(
+            Icons.search,
+            color: Colors.white,
+            size: 15,
+          ),
+        ],
+      ),
+      const SizedBox(
+        width: 10.0,
+        height: 50,
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: const <Widget>[
+              Text(
+                'Enter City Name',
+                style: TextStyle(color: Colors.white, fontSize: 14),
+              ),
+            ],
+          ),
+        ],
+      ),
     ],
   );
+}
 
+Row _temperature_z() {
   return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      const Text(
-        'Info with openweathermap.org',
-        style: TextStyle(fontSize: 15.0),
+      Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.wb_sunny,
+              color: Colors.white,
+              size: 66,
+            ),
+          ],
+        ),
       ),
-      stars,
+
+      //const SizedBox(width: 54.0),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(
+                '14 F',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          Row(
+            children: const <Widget>[
+              Text(
+                'Light Snow',
+                style: TextStyle(color: Colors.white, fontSize: 22),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
+Row _temperature_z1() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      //const SizedBox(width: 54.0),
+      Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.ac_unit,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  '5',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            Row(
+              children: const <Widget>[
+                Text(
+                  'km/hr',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+
+      Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.ac_unit,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  '3',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            Row(
+              children: const <Widget>[
+                Text(
+                  '%',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+
+      Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.ac_unit,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  '20',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            Row(
+              children: const <Widget>[
+                Text(
+                  '%',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     ],
   );
 }
